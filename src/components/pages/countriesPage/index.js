@@ -11,7 +11,9 @@ export default class CountrisPage extends React.Component {
     return (
       <div>
         <Header value="Countries Page" />
-        <CountriesList data={data} />
+        <div className="row">
+          <CountriesList data={data} />
+        </div>
       </div>
     );
   }
