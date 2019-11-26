@@ -6,9 +6,10 @@ import TrusteerNavbar from "./components/ui-components/navbar";
 
 function App() {
   return (
-    <div className="App"> 
-      <TrusteerNavbar />
-      <Header value="Flights Countries" />
+    <div className="App">
+      <div className="container">
+        <TrusteerNavbar />
+      </div>
     </div>
   );
 }

@@ -1,6 +1,12 @@
 import React from "react";
-
-
+import {
+  Navbar,
+  Nav,
+  NavDropdown,
+  Form,
+  Button,
+  FormControl
+} from "react-bootstrap";
 export default class TrusteerNavbar extends React.Component {
   constructor(props) {
     super(props);
@@ -8,7 +14,7 @@ export default class TrusteerNavbar extends React.Component {
   render() {
     return (
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="#home">Countries</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
