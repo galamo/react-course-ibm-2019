@@ -21,16 +21,18 @@ color - color for the text
 
 # ex2
 
-create css module
-file name: style.module.css
-inside the component directory
-this css is private to the css
+- create css module
+- file name: style.module.css
+- inside the component directory
+- this css is private to the css
 
 # ex3
 
-npm install bootstrap
-npm install react-bootstrap
-import boostrap css
-import "bootstrap/dist/css/bootstrap.min.css";
+- npm install bootstrap
+- npm install react-bootstrap
+- import boostrap css
+- import "bootstrap/dist/css/bootstrap.min.css";
 
-create navbar
+# ex4
+
+- create navbar
