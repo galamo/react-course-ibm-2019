@@ -30,9 +30,17 @@ color - color for the text
 
 - npm install bootstrap
 - npm install react-bootstrap
-- import boostrap css
-- import "bootstrap/dist/css/bootstrap.min.css";
+- import boostrap css: import "bootstrap/dist/css/bootstrap.min.css";
 
 # ex4
 
 - create navbar
+
+# ex5
+
+- countris component
+- https://restcountries.eu/rest/v2/all
+- copy the json
+- insert the json into a file in src folder
+- import the json data
+
