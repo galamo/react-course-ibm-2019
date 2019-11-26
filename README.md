@@ -28,4 +28,8 @@ this css is private to the css
 
 # ex3
 
-lets create clss component
+npm install bootstrap
+npm install react-boostrap
+import boostrap css
+
+create navbar
