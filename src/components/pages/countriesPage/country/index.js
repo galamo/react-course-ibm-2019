@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
-
+// this.state.param = 5;
+// this.state.param = {  name: "gal" };
 export default function Country(props) {
   const { name, flag, borders, alpha2Code } = props;
   return (

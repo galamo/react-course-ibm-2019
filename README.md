@@ -45,7 +45,13 @@ color - color for the text
 - import the json data
 
 # ex6
-Create a border components
-use Html unorderd list element
-and render the borders into list item
 
+- Create a border components
+- use Html unorderd list element
+- and render the borders into list item
+
+
+# ex7
+- npm i axios
+- async componentsismount
+- this.setState 

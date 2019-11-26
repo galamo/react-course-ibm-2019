@@ -2,8 +2,8 @@ import React from "react";
 import Country from "../country";
 export default function(props) {
   const { data } = props;
- 
-  if (!Array.isArray(data)) return <h1> No Countries for you!</h1>;
+  if (!Array.isArray(data) || !data.length)
+    return <h1> No Countries for you!</h1>;
   return data.map(country => {
     return <Country {...country} />;
   });
