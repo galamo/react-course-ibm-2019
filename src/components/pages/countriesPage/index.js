@@ -4,12 +4,14 @@ import axios from "axios";
 import Header from "../../ui-components/header";
 import CountriesList from "./countriesList";
 //data
-import data from "../../../data/countries.json";
-
+import Filters from "./filters";
 export default class CountrisPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { countries: [] };
+    this.state = {
+      countries: [],
+      filters: { name: null, region: null, borders: false }
+    };
 
     // this.deleteCountries = this.deleteCountries.bind(this)
   }
@@ -32,12 +34,50 @@ export default class CountrisPage extends React.Component {
       console.log(ex.message);
     }
   };
+  onChangeInput = e => {
+    const { name, value } = e.target;
+    this.setState((prevState, props) => {
+      return {
+        ...prevState,
+        filters: { ...prevState.filters, [name]: value }
+      };
+    });
+  };
+  getFilteredCountries = () => {
+    const { filters } = this.state;
+    const { name, region, borders } = filters;
+    console.log(borders, "borders");
+    if (!name && !region && !borders) return this.state.countries;
+    return this.state.countries.filter(country => {
+      const nameCondition = name
+        ? country.name.toLowerCase().includes(name.toLowerCase())
+        : true;
+      const regionCondition = region
+        ? country.region.toLowerCase().includes(region.toLowerCase())
+        : true;
+      const bordersCondition = this.hasBorders(borders, country);
+      return nameCondition && regionCondition && bordersCondition;
+    });
+  };
+
+  hasBorders = (borders, country) => {
+    if (country.name === "Monaco") {
+      console.log(country);
+    }
+    if (borders) {
+      if (country.borders && country.borders.length > 0) return true;
+      return false;
+    } else {
+      return true;
+    }
+  };
 
   render() {
-    console.log("is it render ?");
+    const filteredCountries = this.getFilteredCountries();
     return (
       <div>
         <Header value="Countries Page" />
+        <Filters onChangeInput={this.onChangeInput} />
         <button className="btn btn-danger" onClick={this.deleteCountries}>
           delete countries
         </button>
@@ -45,7 +85,7 @@ export default class CountrisPage extends React.Component {
           get countries
         </button>
         <div className="row">
-          <CountriesList data={this.state.countries} />
+          <CountriesList data={filteredCountries} />
         </div>
       </div>
     );
