@@ -29,7 +29,8 @@ this css is private to the css
 # ex3
 
 npm install bootstrap
-npm install react-boostrap
+npm install react-bootstrap
 import boostrap css
+import "bootstrap/dist/css/bootstrap.min.css";
 
 create navbar
