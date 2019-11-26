@@ -44,3 +44,8 @@ color - color for the text
 - insert the json into a file in src folder
 - import the json data
 
+# ex6
+Create a border components
+use Html unorderd list element
+and render the borders into list item
+
