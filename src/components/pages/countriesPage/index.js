@@ -1,5 +1,9 @@
 import React from "react";
+
+//Components
 import Header from "../../ui-components/header";
+import CountriesList from "./countriesList";
+//data
 import data from "../../../data/countries.json";
 
 export default class CountrisPage extends React.Component {
@@ -7,9 +11,7 @@ export default class CountrisPage extends React.Component {
     return (
       <div>
         <Header value="Countries Page" />
-        {data.map(country => (
-          <h1>{country.name}</h1>
-        ))}
+        <CountriesList data={data} />
       </div>
     );
   }
