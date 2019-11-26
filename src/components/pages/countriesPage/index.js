@@ -24,11 +24,19 @@ export default class CountrisPage extends React.Component {
     }
   }
 
+  deleteCountries = () => {
+    console.log("button clicked!!!");
+  };
+
   render() {
     console.log("is it render ?");
     return (
       <div>
         <Header value="Countries Page" />
+        <button className="btn btn-danger" onClick={this.deleteCountries}>
+          {" "}
+          delete countries{" "}
+        </button>
         <div className="row">
           <CountriesList data={this.state.countries} />
         </div>

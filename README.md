@@ -50,8 +50,12 @@ color - color for the text
 - use Html unorderd list element
 - and render the borders into list item
 
-
 # ex7
+
 - npm i axios
 - async componentsismount
-- this.setState 
+- this.setState
+
+# ex8
+
+- clear all countries from page
