@@ -1,13 +1,17 @@
 import React, { useState } from "react";
+import useCustomForm from "../../../hooks/useCustomForm";
+import axios from "axios";
 
 export default function RegisterPage() {
-  const initialState = { userName: "", email: "" };
-  const [formData, setFormData] = useState(initialState); //first render formData = initialState
+  const initialState = { password: "", email: "" };
   const [counter, setCounter] = useState(0);
+  const [formData, onChangeInput] = useCustomForm(initialState);
 
-  const onChangeInput = event => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+  const registerRequest = async () => {
+    const { data } = await axios.post("http://localhost:3200/auth/register", {
+      ...formData
+    });
+    console.log(data);
   };
 
   return (
@@ -42,9 +46,7 @@ export default function RegisterPage() {
       <button
         type="button"
         className="btn btn-primary"
-        onClick={() => {
-          setCounter(counter + 1);
-        }}
+        onClick={registerRequest}
       >
         Register
       </button>

@@ -82,3 +82,7 @@ color - color for the text
 ## POST http://9.147.10.137:3200/auth/login { email, password }
 
 ## GET http://9.147.10.137:3200/flights { authorization header - token }
+
+
+
+## Redux implemented

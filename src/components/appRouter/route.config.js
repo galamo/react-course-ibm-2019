@@ -2,6 +2,7 @@ import LoginPage from "../pages/loginPage";
 import HomePage from "../pages/homePage";
 import CountriesPage from "../pages/countriesPage";
 import RegisterPage from "../pages/registerPage";
+import CountryPage from "../pages/countryPage";
 
 export const routes = [
   { exact: true, component: LoginPage, path: "/login", title: "Login" },
@@ -17,5 +18,12 @@ export const routes = [
     component: CountriesPage,
     path: "/countries",
     title: "Countries"
+  },
+  {
+    exact: true,
+    component: CountryPage,
+    path: "/country/:code",
+    title: "Country",
+    visible: false
   }
 ];

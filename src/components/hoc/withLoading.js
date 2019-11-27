@@ -4,7 +4,7 @@ export const withLoading = loadingProps => WrappedComponent => {
   return class loadingHOC extends React.Component {
     render() {
       return !loadingProps ? (
-        <div class="loader"></div>
+        <div className="loader"></div>
       ) : (
         <WrappedComponent {...this.props} />
       );

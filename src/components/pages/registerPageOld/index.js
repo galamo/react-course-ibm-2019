@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import useCustomForm from "../../../hooks/useCustomForm";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const initialState = { password: "", email: "" };
+  const [formData, setFormData] = useState(initialState); //first render formData = initialState
   const [counter, setCounter] = useState(0);
-  const [formData, onChangeInput] = useCustomForm(initialState);
+
+  const onChangeInput = event => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   return (
     <form noValidate>
@@ -39,10 +43,10 @@ export default function LoginPage() {
         type="button"
         className="btn btn-primary"
         onClick={() => {
-          console.log(formData);
+          setCounter(counter + 1);
         }}
       >
-        Login
+        Register
       </button>
       <h2> failed to: {counter} </h2>
     </form>
