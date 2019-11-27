@@ -4,6 +4,7 @@ import axios from "axios";
 import Header from "../../ui-components/header";
 import CountriesList from "./countriesList";
 import Filters from "./filters";
+import { withLoading } from "../../hoc/withLoading.js";
 export default class CountrisPage extends React.Component {
   constructor(props) {
     super(props);
@@ -63,6 +64,9 @@ export default class CountrisPage extends React.Component {
   };
   render() {
     const filteredCountries = this.filterCountries();
+    const CountriesWithLoading = withLoading(filteredCountries.length)(
+      CountriesList
+    );
     return (
       <div>
         <Header value="Countries Page" />
@@ -76,7 +80,7 @@ export default class CountrisPage extends React.Component {
           <Filters onChangeInput={this.onChangeInput} />
         </div>
         <div className="row">
-          <CountriesList data={filteredCountries} />
+          <CountriesWithLoading data={filteredCountries} />
         </div>
       </div>
     );
