@@ -3,10 +3,10 @@ import React from "react";
 export default function Filters(props) {
   return (
     <div>
-      <div class="form-group">
+      <div className="form-group">
         <label>Search Country Name</label>
         <input
-          class="form-control"
+          className="form-control"
           name="countryName"
           placeholder="Enter country"
           onChange={props.onChangeInput}
@@ -14,7 +14,7 @@ export default function Filters(props) {
 
         <label>Search Region Name</label>
         <input
-          class="form-control"
+          className="form-control"
           name="region"
           placeholder="Enter region"
           onChange={props.onChangeInput}
@@ -22,7 +22,7 @@ export default function Filters(props) {
         <label>has Borders</label>
         <input
           type="checkbox"
-          class="form-control"
+          className="form-control"
           name="hasBorders"
           placeholder="Enter country"
           //   onChange={props.onChangeInput}

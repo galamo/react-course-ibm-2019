@@ -5,7 +5,7 @@ export default function(props) {
   if (!Array.isArray(data) || !data.length)
     return <h1> No Countries for you!</h1>;
   return data.map(country => {
-    return <Country {...country} />;
+    return <Country key={country.alpha3Code} {...country} />;
   });
 }
 

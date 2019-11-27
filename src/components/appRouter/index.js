@@ -6,7 +6,7 @@ export default function AppRouter(props) {
   const { routes } = props;
 
   return routes.map(route => {
-    return <Route {...route} />;
+    return <Route key={route.path} {...route} />;
   });
 }
 
@@ -14,7 +14,7 @@ export function AppLinks(props) {
   const { routes } = props;
   return routes.map(route => {
     return (
-      <Link style={{ marginLeft: "20px" }} to={route.path}>
+      <Link key={route.path} style={{ marginLeft: "20px" }} to={route.path}>
         {route.title}
       </Link>
     );
