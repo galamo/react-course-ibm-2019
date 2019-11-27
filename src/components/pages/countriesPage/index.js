@@ -5,6 +5,7 @@ import Header from "../../ui-components/header";
 import CountriesList from "./countriesList";
 //data
 import Filters from "./filters";
+import { withLoading } from "../../hoc/withLoading";
 export default class CountrisPage extends React.Component {
   constructor(props) {
     super(props);
@@ -74,6 +75,9 @@ export default class CountrisPage extends React.Component {
 
   render() {
     const filteredCountries = this.getFilteredCountries();
+    const CountriesListHOC = withLoading(filteredCountries.length)(
+      CountriesList
+    );
     return (
       <div>
         <Header value="Countries Page" />
@@ -85,7 +89,7 @@ export default class CountrisPage extends React.Component {
           get countries
         </button>
         <div className="row">
-          <CountriesList data={filteredCountries} />
+          <CountriesListHOC data={filteredCountries} />
         </div>
       </div>
     );

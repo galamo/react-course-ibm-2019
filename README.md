@@ -59,3 +59,11 @@ color - color for the text
 # ex8
 
 - clear all countries from page
+
+# API
+
+## POST http://IP:3200/register { email, password }
+
+## POST http://IP:3200/login { email, password }
+
+## GET http://IP:3200/flights { authorization header - token }
