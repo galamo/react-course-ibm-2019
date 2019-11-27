@@ -7,8 +7,9 @@ import {
   Button,
   FormControl
 } from "react-bootstrap";
+import { AppLinks } from "../../appRouter";
+import { routes } from "../../appRouter/route.config";
 
-import { Link } from "react-router-dom";
 export default class TrusteerNavbar extends React.Component {
   constructor(props) {
     super(props);
@@ -20,10 +21,8 @@ export default class TrusteerNavbar extends React.Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <div>
-              <Link to="/">Home</Link>
-              <Link to="/login"> Login </Link>
-              <Link to="/countries"> Countries </Link>
+            <div style={{ display: "flex", alignSelf: "center" }}>
+              <AppLinks routes={routes} />
             </div>
             {/* <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/login">Link</Nav.Link>

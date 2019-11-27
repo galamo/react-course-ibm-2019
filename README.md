@@ -64,3 +64,9 @@ color - color for the text
 # ex9
 - add register page to the routes
 - add appLink Component - use the routes config 
+
+
+
+# e10
+- add filter for region 
+- search filter will use region and country name 

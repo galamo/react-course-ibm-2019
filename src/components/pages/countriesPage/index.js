@@ -3,13 +3,11 @@ import axios from "axios";
 //Components
 import Header from "../../ui-components/header";
 import CountriesList from "./countriesList";
-//data
-import data from "../../../data/countries.json";
-
+import Filters from "./filters";
 export default class CountrisPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { countries: [] };
+    this.state = { countries: [], filters: { countryName: null } };
 
     // this.deleteCountries = this.deleteCountries.bind(this)
   }
@@ -33,8 +31,30 @@ export default class CountrisPage extends React.Component {
     }
   };
 
+  // const name = "search"
+  // { name : ""}
+  // { search : ""}
+
+  onChangeInput = event => {
+    const { name, value } = event.target;
+    this.setState(prevState => {
+      return { ...prevState, filters: { ...prevState.filters, [name]: value } };
+    });
+  };
+
+  filterCountries = () => {
+    const { filters, countries } = this.state;
+    const { countryName } = filters;
+    if (!countryName) return countries;
+    const countryNameLower = countryName.toLowerCase();
+    return countries.filter(country => {
+      return country.name.toLowerCase().includes(countryNameLower);
+    });
+  };
   render() {
-    console.log("is it render ?");
+    // console.log(this.state.filters.countryName);
+    const filteredCountries = this.filterCountries();
+
     return (
       <div>
         <Header value="Countries Page" />
@@ -45,7 +65,10 @@ export default class CountrisPage extends React.Component {
           get countries
         </button>
         <div className="row">
-          <CountriesList data={this.state.countries} />
+          <Filters onChangeInput={this.onChangeInput} />
+        </div>
+        <div className="row">
+          <CountriesList data={filteredCountries} />
         </div>
       </div>
     );
