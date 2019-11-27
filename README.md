@@ -60,13 +60,19 @@ color - color for the text
 
 - clear all countries from page
 
-
 # ex9
+
 - add register page to the routes
-- add appLink Component - use the routes config 
-
-
+- add appLink Component - use the routes config
 
 # e10
-- add filter for region 
-- search filter will use region and country name 
+
+- add filter for region
+- search filter will use region and country name
+
+# ex11
+
+- react hooks
+- create registration page
+- firstname, lastName, email, password
+- on click register button make post request to http://IP:3200/register { email, password }
