@@ -7,6 +7,7 @@ import data from "./data/countries.json";
 import CountrisPage from "./components/pages/countriesPage";
 import HomePage from "./components/pages/home";
 import LoginPage from "./components/pages/loginPage";
+import CountryPage from "./components/pages/countryPage";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 const routes = [
   { path: "/", component: HomePage, title: "home", exact: true },
@@ -16,7 +17,13 @@ const routes = [
     title: "countreis",
     exact: true
   },
-  { path: "/login", component: LoginPage, title: "login", exact: true }
+  { path: "/login", component: LoginPage, title: "login", exact: true },
+  {
+    path: "/country/:code",
+    component: CountryPage,
+    title: "country",
+    exact: true
+  }
 ];
 
 function App() {

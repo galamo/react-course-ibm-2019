@@ -12,7 +12,7 @@ export default function Country(props) {
         <Card.Img variant="top" src={flag} height={120} />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
-          <Card.Text>{borders.join(",")}</Card.Text>
+          {/* <Card.Text>{borders.join(",")}</Card.Text> */}
           <Button variant="primary">{alpha2Code}</Button>
           <Stars />
         </Card.Body>
