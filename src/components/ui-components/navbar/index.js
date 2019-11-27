@@ -24,7 +24,8 @@ export default class TrusteerNavbar extends React.Component {
               Home
             </Link>
 
-            <Link to="/c">Countries</Link>
+            <Link to="/countries">Countries</Link>
+            <Link to="/login">Login</Link>
 
             <Nav className="mr-auto">
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
