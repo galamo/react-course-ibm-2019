@@ -59,3 +59,8 @@ color - color for the text
 # ex8
 
 - clear all countries from page
+
+
+# ex9
+- add register page to the routes
+- add appLink Component - use the routes config 
