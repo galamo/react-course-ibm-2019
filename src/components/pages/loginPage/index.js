@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function LoginPage() {
-  const initialState = { email: "", password: "" };
+  const initialState = { userName: "", email: "" };
   const [formData, setFormData] = useState(initialState); //first render formData = initialState
   const [counter, setCounter] = useState(0);
 

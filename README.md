@@ -76,3 +76,9 @@ color - color for the text
 - create registration page
 - firstname, lastName, email, password
 - on click register button make post request to http://IP:3200/register { email, password }
+
+## POST http://9.147.10.137:3200/auth/register { email, password }
+
+## POST http://9.147.10.137:3200/auth/login { email, password }
+
+## GET http://9.147.10.137:3200/flights { authorization header - token }
