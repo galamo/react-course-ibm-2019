@@ -7,7 +7,10 @@ import Filters from "./filters";
 export default class CountrisPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { countries: [], filters: { countryName: null } };
+    this.state = {
+      countries: [],
+      filters: { countryName: null, region: null }
+    };
 
     // this.deleteCountries = this.deleteCountries.bind(this)
   }
@@ -44,17 +47,22 @@ export default class CountrisPage extends React.Component {
 
   filterCountries = () => {
     const { filters, countries } = this.state;
-    const { countryName } = filters;
-    if (!countryName) return countries;
-    const countryNameLower = countryName.toLowerCase();
+    const { countryName, region } = filters;
+    if (!countryName && !region) return countries;
+    const countryNameLower = countryName && countryName.toLowerCase();
+    const regionNameLower = region && region.toLowerCase();
     return countries.filter(country => {
-      return country.name.toLowerCase().includes(countryNameLower);
+      const isCountryName = countryName
+        ? country.name.toLowerCase().includes(countryNameLower)
+        : true;
+      const isRegionyName = region
+        ? country.region.toLowerCase().includes(regionNameLower)
+        : true;
+      return isRegionyName && isCountryName;
     });
   };
   render() {
-    // console.log(this.state.filters.countryName);
     const filteredCountries = this.filterCountries();
-
     return (
       <div>
         <Header value="Countries Page" />

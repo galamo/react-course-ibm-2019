@@ -11,6 +11,22 @@ export default function Filters(props) {
           placeholder="Enter country"
           onChange={props.onChangeInput}
         />
+
+        <label>Search Region Name</label>
+        <input
+          class="form-control"
+          name="region"
+          placeholder="Enter region"
+          onChange={props.onChangeInput}
+        />
+        <label>has Borders</label>
+        <input
+          type="checkbox"
+          class="form-control"
+          name="hasBorders"
+          placeholder="Enter country"
+          //   onChange={props.onChangeInput}
+        />
       </div>
     </div>
   );
