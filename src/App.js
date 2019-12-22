@@ -7,16 +7,22 @@ import TrusteerNavbar from "./components/ui-components/navbar";
 // import LoginPage from "./components/pages/loginPage";
 import AppRouter from "./components/appRouter";
 import { routes } from "./components/appRouter/route.config";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, HashRouter } from "react-router-dom";
+import { AnimatedSwitch } from "react-router-transition";
 
 function App() {
   console.log("this page is refreshed");
   return (
     <div className="App">
       <div className="container">
-        <BrowserRouter>
+        <HashRouter>
           <TrusteerNavbar />
-          <Switch>
+          <AnimatedSwitch
+            atEnter={{ opacity: 0 }}
+            atLeave={{ opacity: 0 }}
+            atActive={{ opacity: 1 }}
+            className="switch-wrapper"
+          >
             <AppRouter routes={routes} />
             {/* <Route exact path="/" component={HomePage} />
             <Route exact path="/login" component={LoginPage} />
@@ -28,8 +34,9 @@ function App() {
                 return <h1> not found </h1>;
               }}
             /> */}
-          </Switch>
-        </BrowserRouter>
+            {/* import { AnimatedSwitch } from 'react-router-transition'; */}
+          </AnimatedSwitch>
+        </HashRouter>
       </div>
     </div>
   );

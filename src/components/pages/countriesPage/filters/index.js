@@ -11,6 +11,7 @@ export default function Filters(props) {
           placeholder="Enter country"
           onChange={props.onChangeInput}
         />
+        onchNGEINPUT
 
         <label>Search Region Name</label>
         <input

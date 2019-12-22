@@ -5,11 +5,12 @@ import Header from "../../ui-components/header";
 import CountriesList from "./countriesList";
 import Filters from "./filters";
 import { withLoading } from "../../hoc/withLoading.js";
+import axiosinstance from "../../../axios.middleware";
 export default class CountrisPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      countries: [],
+      countries: null,
       filters: { countryName: null, region: null }
     };
 
@@ -26,11 +27,10 @@ export default class CountrisPage extends React.Component {
 
   getCountries = async () => {
     try {
-      const { data: countries } = await axios.get(
-        "https://restcountries.eu/rest/v2/all"
-      );
+      const { data: countries } = await axiosinstance.get("/all");
       this.setState({ countries });
     } catch (ex) {
+      this.setState({ countries: [] });
       console.log(ex.message);
     }
   };
@@ -49,7 +49,7 @@ export default class CountrisPage extends React.Component {
   filterCountries = () => {
     const { filters, countries } = this.state;
     const { countryName, region } = filters;
-    if (!countryName && !region) return countries;
+    if ((!countryName && !region) || !countries) return countries;
     const countryNameLower = countryName && countryName.toLowerCase();
     const regionNameLower = region && region.toLowerCase();
     return countries.filter(country => {
@@ -64,9 +64,7 @@ export default class CountrisPage extends React.Component {
   };
   render() {
     const filteredCountries = this.filterCountries();
-    const CountriesWithLoading = withLoading(filteredCountries.length)(
-      CountriesList
-    );
+    const CountriesWithLoading = withLoading(filteredCountries)(CountriesList);
     return (
       <div>
         <Header value="Countries Page" />
